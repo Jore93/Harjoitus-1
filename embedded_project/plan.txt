@@ -1,0 +1,8 @@
+Wireless microphone with transmitter and receiver
+
+
+BT modules for transmitting and receiving signal
+Design filters to be used with BT modules
+Arduino Nano to control everything?
+MCP73831 to load LiPO battery (Capacity should be big enough to run the system >3 hours
+
