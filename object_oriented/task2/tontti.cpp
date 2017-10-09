@@ -20,13 +20,11 @@ void Tontti::syotaNimi() {
 }
 
 void Tontti::syotaTiedot() {
-	Tontti tontti;
-
-	tontti.syotaNimi();
-	tontti.syotaPituuspiiri();
-	tontti.syotaLeveyspiiri();
-	tontti.syotaPinta_ala();
-	tontti.syotaKerrosten_lkm();
+	Tontti::syotaNimi();
+	Tontti::syotaPituuspiiri();
+	Tontti::syotaLeveyspiiri();
+	Tontti::syotaPinta_ala();
+	Tontti::syotaKerrosten_lkm();
 }
 
 void Tontti::tulostaTontti() {
@@ -36,11 +34,9 @@ void Tontti::tulostaTontti() {
 }
 
 void Tontti::tulostaTiedot() {
-	Tontti tontti;
-
-	tontti.tulostaTontti();
-	tontti.tulostaRakennus();
-	tontti.tulostaSijainti();
+	Tontti::tulostaTontti();
+	Tontti::tulostaRakennus();
+	Tontti::tulostaSijainti();
 }
 
 
