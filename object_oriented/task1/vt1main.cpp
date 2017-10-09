@@ -18,8 +18,8 @@ int main() {
     Tili.syotaTilinOmistaja();
     Tili.syotaTilinumero();
     Tili.syotaTilinSaldo();
-    Tili.tulostaTilinTiedot();
     while(true) {
+      Tili.tulostaTilinTiedot();
       cout << "Haluatko tehdä noston vai panon? Kirjoita 'Otto' tai 'Pano'" << endl;
       cin >> vast;
       if(vast == "Otto") {
