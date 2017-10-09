@@ -15,12 +15,12 @@ class Pankkitili {
   public:
   // Getters
     string getOmistaja();
-    void setOmistaja(string omistaja);
+    double getSaldo();
     string getTilinumero();
 
   // Setters
     void setTilinumero(string tilinumero);
-    double getSaldo();
+    void setOmistaja(string omistaja);
     void setSaldo(double saldo);
 
   // Methods

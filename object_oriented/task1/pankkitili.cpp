@@ -3,10 +3,8 @@
 
 using namespace std;
 
-string omistaja;
-string tilinumero;
+string omistaja, tilinumero;
 double saldo;
-
 
 string Pankkitili::getOmistaja() {
   return Omistaja;
