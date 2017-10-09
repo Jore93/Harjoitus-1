@@ -3,15 +3,6 @@
 
 using namespace std;
 
-extern string getOmistaja();
-extern string getTilinumero();
-extern double getSaldo();
-extern void syotaTilinOmistaja();
-extern void syotaTilinumero();
-extern void syotaTilinSaldo();
-extern void tulostaTilinTiedot();
-extern double otto();
-
 int main() {
     Pankkitili Tili;
     string omistaja;
@@ -50,7 +41,7 @@ int main() {
           return 0;
         }
         if(vastaus == "n") {
-          continue;
+          break;
         }
         else {
           cout << "Syötä n jos haluat jatkaa ohjelman käyttöä ja y jos haluat lopettaa." << endl;

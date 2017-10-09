@@ -86,5 +86,8 @@ double Pankkitili::pano() {
 }
 
 void Pankkitili::tulostaTilinTiedot() {
-  cout << "Tilin omistaja on: " << Omistaja << "\nTilinumero on : " << Tilinumero << "\nTilin saldo on: " << Saldo << " euroa." << endl;
+	omistaja = getOmistaja();
+	tilinumero = getTilinumero();
+	saldo = getSaldo();
+	cout << "Tilin omistaja on: " << omistaja << "\nTilinumero on : " << tilinumero << "\nTilin saldo on: " << saldo << " euroa." << endl;
 }
