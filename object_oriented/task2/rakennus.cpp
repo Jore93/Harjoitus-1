@@ -20,13 +20,13 @@ void Rakennus::setKerrokset(int kerrosten_lkm) {
 
 // Methods
 void Rakennus::syotaPinta_ala() {
-	cout << "Syötä rakennuksen pinta-ala neliöinä: " << endl;
 	int pinta_ala;
+	cout << "Syötä rakennuksen pinta-ala neliöinä: " << endl;
 	cin >> pinta_ala;
 	setAla(pinta_ala);
 }
 void Rakennus::syotaKerrosten_lkm() {
-	cout << "Syötä rakennuksen kerrosten lukumäärä: " << endl;
+	cout << "Syötä kerrosten lukumäärä: " << endl;
 	int kerrosten_lkm;
 	cin >> kerrosten_lkm;
 	setKerrokset(kerrosten_lkm);

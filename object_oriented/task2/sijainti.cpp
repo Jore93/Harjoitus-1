@@ -2,6 +2,7 @@
 #include "sijainti.h"
 
 
+
 string Sijainti::getLeveyspiiri(void) {
 	return Leveyspiiri;
 }
@@ -31,8 +32,7 @@ void Sijainti::syotaPituuspiiri(void) {
 	setPituuspiiri(pituuspiiri);
 }
 void Sijainti::tulostaSijainti(void) {
-	string pituuspiiri, leveyspiiri;
-	pituuspiiri = getPituuspiiri();
-	leveyspiiri = getLeveyspiiri();
+	string pituuspiiri = getPituuspiiri();
+	string leveyspiiri = getLeveyspiiri();
 	cout << "Sijainti on " << leveyspiiri << " astetta leveyttä ja " << pituuspiiri << " astetta pituutta." << endl;
 }

@@ -2,6 +2,7 @@
 #include "tontti.h"
 
 
+
 string Tontti::getNimi() {
 	return Nimi;
 }
@@ -12,8 +13,8 @@ void Tontti::setNimi(string nimi) {
 
 
 void Tontti::syotaNimi() {
-	cout << "Syötä tontin nimi: " << endl;
 	string nimi;
+	cout << "Syötä tontin nimi: " << endl;
 	cin >> nimi;
 	setNimi(nimi);
 }
