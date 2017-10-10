@@ -7,7 +7,7 @@ using namespace std;
 class Subscription {
 	private:
 		string Lehden_nimi, Tilaajan_nimi, Toimitusosoite, Tyyppi;
-		double Kuukausihinta, Laskutettavat_kk;
+		double Kuukausihinta, Laskutettavat_kk, Hinta;
 	public:
 		// Getters
 		string getLehdenNimi();
@@ -16,6 +16,7 @@ class Subscription {
 		string getTyyppi();
 		double getKuukausihinta();
 		double getLaskutettavatKK();
+		double getHinta();
 
 		// Setters
 		void setLehdenNimi(string lehden_nimi);
@@ -24,13 +25,14 @@ class Subscription {
 		void setTyyppi(string tyyppi);
 		void setKuukausihinta(double kuukausihinta);
 		void setLaskutettavatKK(double laskutettavat_kk);
+		void setHinta(double hinta);
 
 		// Methods
 		void syotaTyyppi();
 		void syotaLehdenNimi();
 		void syotaTilaajanNimi();
 		void syotaToimitusosoite();
-		void setKuukausihinta();
+		void syotaKuukausihinta();
 };
 
 void printSubscriptionInvoice(Subscription &subs);

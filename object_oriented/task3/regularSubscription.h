@@ -17,6 +17,8 @@ class RegularSubscription: public Subscription {
 
 		// Methods
 		void syotaTilauksenKesto();
+		void laskeNormaaliHinta();
+		void printRegularInvoice();
 };
 
 

@@ -20,11 +20,12 @@ double Subscription::getKuukausihinta() {
 double Subscription::getLaskutettavatKK() {
 	return Laskutettavat_kk;
 }
-
+double Subscription::getHinta() {
+	return Hinta;
+}
 // Setters
 void Subscription::setLehdenNimi(string lehden_nimi) {
 	Lehden_nimi = lehden_nimi;
-
 }
 void Subscription::setTilaajanNimi(string tilaajan_nimi) {
 	Tilaajan_nimi = tilaajan_nimi;
@@ -39,11 +40,16 @@ void Subscription::setKuukausihinta(double kuukausihinta) {
 	Kuukausihinta = kuukausihinta;
 }
 void Subscription::setLaskutettavatKK(double laskutettavat_kk) {
-	Laskutettavat_kk = laskutettavat_kk;
 	string tyyppi = getTyyppi();
 	if(tyyppi == "Kestotilaus") {
 		Laskutettavat_kk = 12;
 	}
+	else {
+		Laskutettavat_kk = laskutettavat_kk;
+	}
+}
+void Subscription::setHinta(double hinta) {
+	Hinta = hinta;
 }
 
 // Methods
@@ -83,9 +89,28 @@ void Subscription::syotaToimitusosoite() {
 	cin >> toimitusosoite;
 	setToimitusosoite(toimitusosoite);
 }
-void Subscription::setKuukausihinta() {
+void Subscription::syotaKuukausihinta() {
 	double kuukausihinta;
 	cout << "Syötä kuukausihinta: " << endl;
 	cin >> kuukausihinta;
 	setKuukausihinta(kuukausihinta);
+}
+
+void printSubscriptionInvoice(Subscription &subs) {
+	string tilaajan_nimi, lehden_nimi, toimitusosoite, tyyppi;
+	double hinta, laskutettavat_kk;
+
+	tilaajan_nimi = subs.getTilaajanNimi();
+	lehden_nimi = subs.getLehdenNimi();
+	toimitusosoite = subs.getToimitusosoite();
+	tyyppi = subs.getTyyppi();
+	laskutettavat_kk = subs.getLaskutettavatKK();
+	hinta = subs.getHinta();
+
+	cout << "Tilaaja: " << tilaajan_nimi << endl;
+	cout << "Lehti: " << lehden_nimi << endl;
+	cout << "Toimitusosoite: " << toimitusosoite << endl;
+	cout << "Tilauksen tyyppi: " << tyyppi << endl;
+	cout << "Laskutettavat kuukaudet: " << laskutettavat_kk << endl;
+	cout << "Tilauksen kokonaishinta: " << hinta << " euroa." << endl;
 }

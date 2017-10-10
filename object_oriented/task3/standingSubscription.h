@@ -17,6 +17,8 @@ class StandingSubscription: public Subscription {
 
 		// Methods
 		void syotaAlennusprosentti();
+		void laskeKestoHinta();
+		void printStandingInvoice();
 };
 
 
