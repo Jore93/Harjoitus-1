@@ -1,8 +1,6 @@
 #include <iostream>
 #include "pankkitili.h"
 
-using namespace std;
-
 int main() {
     Pankkitili Tili;
     string omistaja;

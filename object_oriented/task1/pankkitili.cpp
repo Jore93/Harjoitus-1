@@ -1,8 +1,6 @@
 #include <iostream>
 #include "pankkitili.h"
 
-using namespace std;
-
 string omistaja, tilinumero;
 double saldo;
 

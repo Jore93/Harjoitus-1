@@ -1,9 +1,9 @@
+#ifndef PANKKITILI
+#define PANKKITILI
+
 #include <iostream>
 
 using namespace std;
-
-#ifndef PANKKITILI
-#define PANKKITILI
 
 class Pankkitili {
 
