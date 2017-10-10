@@ -20,20 +20,4 @@ void RegularSubscription::syotaTilauksenKesto() {
 		tilauksen_kesto = 0;
 	}
 	setTilauksenKesto(tilauksen_kesto);
-	RegularSubscription::setLaskutettavatKK(tilauksen_kesto);
-}
-void RegularSubscription::laskeNormaaliHinta() {
-	double hinta, kuukausihinta, laskutettavat_kk;
-
-	kuukausihinta = RegularSubscription::getKuukausihinta();
-	laskutettavat_kk = RegularSubscription::getLaskutettavatKK();
-
-	hinta = kuukausihinta*laskutettavat_kk;
-	RegularSubscription::setHinta(hinta);
-}
-
-void RegularSubscription::printRegularInvoice() {
-	int tilauksen_kesto = getTilauksenKesto();
-
-	cout << "Tilauksen kesto: " << tilauksen_kesto << " kuukautta." << endl;
 }

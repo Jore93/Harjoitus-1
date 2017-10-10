@@ -96,6 +96,32 @@ void Subscription::syotaKuukausihinta() {
 	setKuukausihinta(kuukausihinta);
 }
 
+void Subscription::laskeHinta() {
+	string tyyppi = getTyyppi();
+
+	if(tyyppi == "Kestotilaus") {
+		int alennusprosentti;
+		double hinta, kuukausihinta, laskutettavat_kk;
+		StandingSubscription Kestotilaus;
+
+		alennusprosentti = Kestotilaus.getAlennusprosentti();
+		kuukausihinta = getKuukausihinta();
+		laskutettavat_kk = getLaskutettavatKK();
+
+		hinta = kuukausihinta*(alennusprosentti/100)*laskutettavat_kk;
+	}
+	if(tyyppi == "Normaalitilaus") {
+		int tilauksen_kesto;
+		double hinta, kuukausihinta;
+		RegularSubscription Normaalitilaus;
+
+		tilauksen_kesto = Normaalitilaus.getTilauksenKesto();
+		kuukausihinta = getKuukausihinta();
+
+		hinta = kuukausihinta*tilauksen_kesto;
+	}
+}
+
 void printSubscriptionInvoice(Subscription &subs) {
 	string tilaajan_nimi, lehden_nimi, toimitusosoite, tyyppi;
 	double hinta, laskutettavat_kk;
@@ -112,5 +138,13 @@ void printSubscriptionInvoice(Subscription &subs) {
 	cout << "Toimitusosoite: " << toimitusosoite << endl;
 	cout << "Tilauksen tyyppi: " << tyyppi << endl;
 	cout << "Laskutettavat kuukaudet: " << laskutettavat_kk << endl;
+	if(tyyppi == "Normaalitilaus") {
+		int tilauksen_kesto = subs.getTilauksenKesto();
+		cout << "Tilauksen kesto: " << tilauksen_kesto << " kuukautta." << endl;
+	}
+	if(tyyppi == "Kestotilaus") {
+		int alennusprosentti = subs.getAlennusprosentti();
+		cout << "Alennusprosentti: " << alennusprosentti << "%" << endl;
+	}
 	cout << "Tilauksen kokonaishinta: " << hinta << " euroa." << endl;
 }

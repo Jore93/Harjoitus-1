@@ -1,10 +1,12 @@
 #ifndef TASK3_SUBSCRIPTION_H_
 #define TASK3_SUBSCRIPTION_H_
 
+#include "regularSubscription.h"
+#include "standingSubscription.h"
 
 using namespace std;
 
-class Subscription {
+class Subscription: public RegularSubscription, StandingSubscription {
 	private:
 		string Lehden_nimi, Tilaajan_nimi, Toimitusosoite, Tyyppi;
 		double Kuukausihinta, Laskutettavat_kk, Hinta;
@@ -33,6 +35,7 @@ class Subscription {
 		void syotaTilaajanNimi();
 		void syotaToimitusosoite();
 		void syotaKuukausihinta();
+		void laskeHinta();
 };
 
 void printSubscriptionInvoice(Subscription &subs);

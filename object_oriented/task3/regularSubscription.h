@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class RegularSubscription: public Subscription {
+class RegularSubscription {
 	private:
 		int Tilauksen_kesto;
 	public:
@@ -18,7 +18,6 @@ class RegularSubscription: public Subscription {
 		// Methods
 		void syotaTilauksenKesto();
 		void laskeNormaaliHinta();
-		void printRegularInvoice();
 };
 
 

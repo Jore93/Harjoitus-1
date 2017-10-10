@@ -1,11 +1,9 @@
 #ifndef TASK3_STANDINGSUBSCRIPTION_H_
 #define TASK3_STANDINGSUBSCRIPTION_H_
 
-#include "subscription.h"
-
 using namespace std;
 
-class StandingSubscription: public Subscription {
+class StandingSubscription {
 	private:
 		int Alennusprosentti;
 	public:
@@ -18,7 +16,6 @@ class StandingSubscription: public Subscription {
 		// Methods
 		void syotaAlennusprosentti();
 		void laskeKestoHinta();
-		void printStandingInvoice();
 };
 
 

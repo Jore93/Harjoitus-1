@@ -20,8 +20,7 @@ int main() {
 		Normaalitilaus.syotaKuukausihinta();
 		Normaalitilaus.laskeNormaaliHinta();
 
-		printSubscriptionInvoice(RegularSubscription);
-		Normaalitilaus.printRegularInvoice();
+		printSubscriptionInvoice(Normaalitilaus);
 	}
 	if(tyyppi == "Kestotilaus") {
 		Kestotilaus.syotaTilaajanNimi();
@@ -31,8 +30,7 @@ int main() {
 		Kestotilaus.syotaKuukausihinta();
 		Kestotilaus.laskeKestoHinta();
 
-		printSubscriptionInvoice(StandingSubscription);
-		Kestotilaus.printStandingInvoice();
+		printSubscriptionInvoice(Kestotilaus);
 	}
 
 	return 0;
