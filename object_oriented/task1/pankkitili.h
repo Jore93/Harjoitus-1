@@ -1,26 +1,23 @@
 #ifndef PANKKITILI
 #define PANKKITILI
 
-#include <iostream>
-
-using namespace std;
 
 class Pankkitili {
 
   private:
-    string Omistaja;
-    string Tilinumero;
+    std::string Omistaja;
+    std::string Tilinumero;
     double Saldo;
 
   public:
   // Getters
-    string getOmistaja();
+    std::string getOmistaja();
     double getSaldo();
-    string getTilinumero();
+    std::string getTilinumero();
 
   // Setters
-    void setTilinumero(string tilinumero);
-    void setOmistaja(string omistaja);
+    void setTilinumero(std::string tilinumero);
+    void setOmistaja(std::string omistaja);
     void setSaldo(double saldo);
 
   // Methods

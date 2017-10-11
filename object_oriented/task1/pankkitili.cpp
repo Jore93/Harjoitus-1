@@ -1,14 +1,14 @@
 #include <iostream>
 #include "pankkitili.h"
 
-string omistaja, tilinumero;
+std::string omistaja, tilinumero;
 double saldo;
 
-string Pankkitili::getOmistaja() {
+std::string Pankkitili::getOmistaja() {
   return Omistaja;
 }
 
-string Pankkitili::getTilinumero() {
+std::string Pankkitili::getTilinumero() {
   return Tilinumero;
 }
 
@@ -16,11 +16,11 @@ double Pankkitili::getSaldo() {
   return Saldo;
 }
 
-void Pankkitili::setOmistaja(string omistaja) {
+void Pankkitili::setOmistaja(std::string omistaja) {
   Omistaja = omistaja;
 }
 
-void Pankkitili::setTilinumero(string tilinumero) {
+void Pankkitili::setTilinumero(std::string tilinumero) {
   Tilinumero = tilinumero;
 }
 
@@ -29,38 +29,38 @@ void Pankkitili::setSaldo(double saldo) {
 }
 
 void Pankkitili::syotaTilinOmistaja() {
-  cout << "Syötä tilin omistaja: " << endl;
-  string omistaja;
-  cin >> omistaja;
+  std::cout << "Syötä tilin omistaja: " << std::endl;
+  std::string omistaja;
+  std::cin >> omistaja;
   setOmistaja(omistaja);
 }
 
 void Pankkitili::syotaTilinumero() {
-  cout << "Syötä tilinumero: " << endl;
-  string tilinumero;
-  cin >> tilinumero;
+  std::cout << "Syötä tilinumero: " << std::endl;
+  std::string tilinumero;
+  std::cin >> tilinumero;
   setTilinumero(tilinumero);
 }
 
 void Pankkitili::syotaTilinSaldo() {
-  cout << "Syötä tilin saldo: " << endl;
+  std::cout << "Syötä tilin saldo: " << std::endl;
   double saldo;
-  cin >> saldo;
+  std::cin >> saldo;
   setSaldo(saldo);
 }
 
 double Pankkitili::otto() {
   while(true) {
-      cout << "Kirjoita haluamasi noston suuruus lukuina: " << endl;
+      std::cout << "Kirjoita haluamasi noston suuruus lukuina: " << std::endl;
       double otto;
-      cin >> otto;
+      std::cin >> otto;
       double saldo;
       double summa;
       double s;
       s = getSaldo();
       summa = s - otto;
       if(summa < 0) {
-        cout << "Ei voida tehdä ottoa, liian vähän rahaa tilillä." << endl;
+        std::cout << "Ei voida tehdä ottoa, liian vähän rahaa tilillä." << std::endl;
       }
       else {
         saldo = s - otto;
@@ -72,9 +72,9 @@ double Pankkitili::otto() {
 }
 
 double Pankkitili::pano() {
-  cout << "Kirjoita haluamasi panon suuruus lukuina: " << endl;
+  std::cout << "Kirjoita haluamasi panon suuruus lukuina: " << std::endl;
   double pano;
-  cin >> pano;
+  std::cin >> pano;
   double s;
   s = getSaldo();
   double saldo;
@@ -87,5 +87,5 @@ void Pankkitili::tulostaTilinTiedot() {
 	omistaja = getOmistaja();
 	tilinumero = getTilinumero();
 	saldo = getSaldo();
-	cout << "Tilin omistaja on: " << omistaja << "\nTilinumero on : " << tilinumero << "\nTilin saldo on: " << saldo << " euroa." << endl;
+	std::cout << "Tilin omistaja on: " << omistaja << "\nTilinumero on : " << tilinumero << "\nTilin saldo on: " << saldo << " euroa." << std::endl;
 }
