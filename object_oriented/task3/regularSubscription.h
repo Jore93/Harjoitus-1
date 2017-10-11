@@ -2,10 +2,7 @@
 #define TASK3_REGULARSUBSCRIPTION_H_
 
 #include "subscription.h"
-
-using namespace std;
-
-class RegularSubscription {
+class RegularSubscription: public Subscription {
 	private:
 		int Tilauksen_kesto;
 	public:

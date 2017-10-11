@@ -13,9 +13,9 @@ void RegularSubscription::setTilauksenKesto(int tilauksen_kesto) {
 
 // Methods
 void RegularSubscription::syotaTilauksenKesto() {
-	cout << "Syötä tilauksen kesto kuukausina: " << endl;
 	int tilauksen_kesto;
-	cin >> tilauksen_kesto;
+	std::cout << "Syötä tilauksen kesto kuukausina: " << std::endl;
+	std::cin >> tilauksen_kesto;
 	if(tilauksen_kesto < 1) {
 		tilauksen_kesto = 0;
 	}

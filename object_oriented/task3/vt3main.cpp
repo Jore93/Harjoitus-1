@@ -1,13 +1,13 @@
-#include "subscription.h"
-#include "regularSubscription.h"
 #include "standingSubscription.h"
+#include "regularSubscription.h"
+#include "subscription.h"
 
 int main() {
 	Subscription Tilaus;
 	RegularSubscription Normaalitilaus;
 	StandingSubscription Kestotilaus;
 
-	string tyyppi;
+	std::string tyyppi;
 
 	Tilaus.syotaTyyppi();
 	tyyppi = Tilaus.getTyyppi();

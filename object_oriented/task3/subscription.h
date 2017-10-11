@@ -1,30 +1,27 @@
 #ifndef TASK3_SUBSCRIPTION_H_
 #define TASK3_SUBSCRIPTION_H_
 
-#include "regularSubscription.h"
-#include "standingSubscription.h"
+#include <string>
 
-using namespace std;
-
-class Subscription: public RegularSubscription, StandingSubscription {
+class Subscription {
 	private:
-		string Lehden_nimi, Tilaajan_nimi, Toimitusosoite, Tyyppi;
+		std::string Lehden_nimi, Tilaajan_nimi, Toimitusosoite, Tyyppi;
 		double Kuukausihinta, Laskutettavat_kk, Hinta;
 	public:
 		// Getters
-		string getLehdenNimi();
-		string getTilaajanNimi();
-		string getToimitusosoite();
-		string getTyyppi();
+		std::string getLehdenNimi();
+		std::string getTilaajanNimi();
+		std::string getToimitusosoite();
+		std::string getTyyppi();
 		double getKuukausihinta();
 		double getLaskutettavatKK();
 		double getHinta();
 
 		// Setters
-		void setLehdenNimi(string lehden_nimi);
-		void setTilaajanNimi(string tilaajan_nimi);
-		void setToimitusosoite(string toimitusosoite);
-		void setTyyppi(string tyyppi);
+		void setLehdenNimi(std::string lehden_nimi);
+		void setTilaajanNimi(std::string tilaajan_nimi);
+		void setToimitusosoite(std::string toimitusosoite);
+		void setTyyppi(std::string tyyppi);
 		void setKuukausihinta(double kuukausihinta);
 		void setLaskutettavatKK(double laskutettavat_kk);
 		void setHinta(double hinta);
@@ -35,7 +32,6 @@ class Subscription: public RegularSubscription, StandingSubscription {
 		void syotaTilaajanNimi();
 		void syotaToimitusosoite();
 		void syotaKuukausihinta();
-		void laskeHinta();
 };
 
 void printSubscriptionInvoice(Subscription &subs);
