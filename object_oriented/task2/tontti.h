@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Tontti: public Rakennus, Sijainti {
+class Tontti: public Rakennus, public Sijainti {
 	private:
 		string Nimi;
 
