@@ -3,36 +3,36 @@
 
 
 
-string Sijainti::getLeveyspiiri(void) {
+std::string Sijainti::getLeveyspiiri() {
 	return Leveyspiiri;
 }
-string Sijainti::getPituuspiiri(void) {
+std::string Sijainti::getPituuspiiri() {
 	return Pituuspiiri;
 }
 
 // Setters
-void Sijainti::setLeveyspiiri(string leveyspiiri) {
+void Sijainti::setLeveyspiiri(std::string leveyspiiri) {
 	Leveyspiiri = leveyspiiri;
 }
-void Sijainti::setPituuspiiri(string pituuspiiri) {
+void Sijainti::setPituuspiiri(std::string pituuspiiri) {
 	Pituuspiiri = pituuspiiri;
 }
 
 // Methods
-void Sijainti::syotaLeveyspiiri(void) {
-  cout << "Syötä leveyspiiri: " << endl;
-  string leveyspiiri;
-  cin >> leveyspiiri;
+void Sijainti::syotaLeveyspiiri() {
+  std::cout << "Syötä leveyspiiri: " << std::endl;
+  std::string leveyspiiri;
+  std::cin >> leveyspiiri;
   setLeveyspiiri(leveyspiiri);
 }
-void Sijainti::syotaPituuspiiri(void) {
-	cout << "Syötä pituuspiiri: " << endl;
-	string pituuspiiri;
-	cin >> pituuspiiri;
+void Sijainti::syotaPituuspiiri() {
+	std::cout << "Syötä pituuspiiri: " << std::endl;
+	std::string pituuspiiri;
+	std::cin >> pituuspiiri;
 	setPituuspiiri(pituuspiiri);
 }
-void Sijainti::tulostaSijainti(void) {
-	string pituuspiiri = getPituuspiiri();
-	string leveyspiiri = getLeveyspiiri();
-	cout << "Sijainti on " << leveyspiiri << " astetta leveyttä ja " << pituuspiiri << " astetta pituutta." << endl;
+void Sijainti::tulostaSijainti() {
+	std::string pituuspiiri = Sijainti::getPituuspiiri();
+	std::string leveyspiiri = Sijainti::getLeveyspiiri();
+	std::cout << "Sijainti on " << leveyspiiri << " astetta leveyttä ja " << pituuspiiri << " astetta pituutta." << std::endl;
 }

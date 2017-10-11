@@ -2,21 +2,19 @@
 #define TASK2_SIJAINTI_H_
 
 
-using namespace std;
-
 class Sijainti {
 	private:
-		string Leveyspiiri;
-		string Pituuspiiri;
+		std::string Leveyspiiri;
+		std::string Pituuspiiri;
 
 	public:
 		// Getters
-		string getLeveyspiiri();
-		string getPituuspiiri();
+		std::string getLeveyspiiri();
+		std::string getPituuspiiri();
 
 		// Setters
-		void setLeveyspiiri(string leveyspiiri);
-		void setPituuspiiri(string pituuspiiri);
+		void setLeveyspiiri(std::string leveyspiiri);
+		void setPituuspiiri(std::string pituuspiiri);
 
 		// Methods
 		void syotaLeveyspiiri();

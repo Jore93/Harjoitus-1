@@ -5,18 +5,18 @@
 #include "sijainti.h"
 #include "rakennus.h"
 
-using namespace std;
-
-class Tontti: public Rakennus, public Sijainti {
+class Tontti {
 	private:
-		string Nimi;
+		std::string Nimi;
+		Rakennus rakennus;
+		Sijainti sijainti;
 
 	public:
 		// Getter
-		string getNimi();
+		std::string getNimi();
 
 		// Setter
-		void setNimi(string nimi);
+		void setNimi(std::string nimi);
 
 		// Methods
 		void syotaNimi();

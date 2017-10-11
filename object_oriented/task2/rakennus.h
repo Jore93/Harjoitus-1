@@ -1,7 +1,6 @@
 #ifndef TASK2_RAKENNUS_H_
 #define TASK2_RAKENNUS_H_
 
-using namespace std;
 
 class Rakennus {
 	private:
