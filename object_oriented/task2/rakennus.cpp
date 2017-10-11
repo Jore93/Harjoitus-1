@@ -1,4 +1,6 @@
 #include <iostream>
+#include <sstream>
+#include <limits>
 #include "rakennus.h"
 
 
@@ -22,14 +24,40 @@ void Rakennus::setKerrokset(int kerrosten_lkm) {
 void Rakennus::syotaPinta_ala() {
 	int pinta_ala;
 	std::cout << "Syötä rakennuksen pinta-ala neliöinä: " << std::endl;
-	std::cin >> pinta_ala;
-	setAla(pinta_ala);
+	while(true) {
+		std::cin >> pinta_ala;
+		if(std::cin.fail()) {
+			std::cout << "Syötä pinta-alaksi positiivinen kokonaisluku!" << std::endl;
+		}
+		else if(pinta_ala < 0) {
+			std::cout << "Syötä pinta-alaksi positiivinen kokonaisluku!" << std::endl;
+		}
+		else {
+			setAla(pinta_ala);
+			return;
+		}
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 }
 void Rakennus::syotaKerrosten_lkm() {
-	std::cout << "Syötä kerrosten lukumäärä: " << std::endl;
 	int kerrosten_lkm;
-	std::cin >> kerrosten_lkm;
-	setKerrokset(kerrosten_lkm);
+	while(true) {
+		std::cout << "Syötä kerrosten lukumäärä: " << std::endl;
+		std::cin >> kerrosten_lkm;
+		if(!(std::cin)) {
+			std::cout << "Syötä kerrosten lukumääräksi positiivinen kokonaisluku!" << std::endl;
+		}
+		else if(kerrosten_lkm < 0) {
+			std::cout << "Syötä kerrosten lukumääräksi positiivinen kokonaisluku!" << std::endl;
+		}
+		else {
+			setKerrokset(kerrosten_lkm);
+			return;
+		}
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 }
 void Rakennus::tulostaRakennus() {
 	int ala, kerrokset;

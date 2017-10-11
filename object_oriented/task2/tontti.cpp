@@ -15,7 +15,7 @@ void Tontti::setNimi(std::string nimi) {
 void Tontti::syotaNimi() {
 	std::string nimi;
 	std::cout << "Syötä tontin nimi: " << std::endl;
-	std::cin >> nimi;
+	std::getline(std::cin ,nimi);
 	setNimi(nimi);
 }
 
