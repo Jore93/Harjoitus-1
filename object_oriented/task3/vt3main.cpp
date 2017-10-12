@@ -1,6 +1,7 @@
 #include "standingSubscription.h"
 #include "regularSubscription.h"
 #include "subscription.h"
+#include "common.h"
 
 int main() {
 	Subscription Tilaus;
@@ -13,6 +14,7 @@ int main() {
 	tyyppi = Tilaus.getTyyppi();
 
 	if(tyyppi == "Normaalitilaus") {
+		Normaalitilaus.setTyyppi(tyyppi);
 		Normaalitilaus.syotaTilaajanNimi();
 		Normaalitilaus.syotaLehdenNimi();
 		Normaalitilaus.syotaToimitusosoite();
@@ -23,9 +25,11 @@ int main() {
 		printSubscriptionInvoice(Normaalitilaus);
 	}
 	if(tyyppi == "Kestotilaus") {
+		Kestotilaus.setTyyppi(tyyppi);
 		Kestotilaus.syotaTilaajanNimi();
 		Kestotilaus.syotaLehdenNimi();
 		Kestotilaus.syotaToimitusosoite();
+		Kestotilaus.syotaKuukaudet();
 		Kestotilaus.syotaAlennusprosentti();
 		Kestotilaus.syotaKuukausihinta();
 		Kestotilaus.laskeKestoHinta();

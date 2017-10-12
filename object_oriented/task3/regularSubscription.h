@@ -2,6 +2,7 @@
 #define TASK3_REGULARSUBSCRIPTION_H_
 
 #include "subscription.h"
+
 class RegularSubscription: public Subscription {
 	private:
 		int Tilauksen_kesto;

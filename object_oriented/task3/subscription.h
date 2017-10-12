@@ -32,9 +32,9 @@ class Subscription {
 		void syotaTilaajanNimi();
 		void syotaToimitusosoite();
 		void syotaKuukausihinta();
+		void syotaKuukaudet();
+		void printInvoice();
 };
-
-void printSubscriptionInvoice(Subscription &subs);
 
 
 #endif /* TASK3_SUBSCRIPTION_H_ */

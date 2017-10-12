@@ -14,6 +14,7 @@ class StandingSubscription: public Subscription {
 		void setAlennusprosentti(int alennusprosentti);
 
 		// Methods
+		int tilauksenKesto();
 		void syotaAlennusprosentti();
 		void laskeKestoHinta();
 };

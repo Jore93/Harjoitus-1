@@ -1,4 +1,6 @@
 #include <iostream>
+#include <sstream>
+#include <limits>
 #include "subscription.h"
 
 // Getters
@@ -57,7 +59,7 @@ void Subscription::syotaTyyppi() {
 	std::string tyyppi;
 	while(true) {
 		std::cout << "Syötä tilauksen tyyppi: " << std::endl;
-		std::cin >> tyyppi;
+		std::getline(std::cin, tyyppi);
 		if(tyyppi == "Normaalitilaus") {
 			setTyyppi(tyyppi);
 			return;
@@ -74,52 +76,82 @@ void Subscription::syotaTyyppi() {
 void Subscription::syotaLehdenNimi() {
 	std::string lehden_nimi;
 	std::cout << "Syötä lehden nimi: " << std::endl;
-	std::cin >> lehden_nimi;
+	getline(std::cin, lehden_nimi);
 	setLehdenNimi(lehden_nimi);
 }
 void Subscription::syotaTilaajanNimi() {
 	std::string tilaajan_nimi;
 	std::cout << "Syötä tilaajan nimi: " << std::endl;
-	std::cin >> tilaajan_nimi;
+	getline(std::cin, tilaajan_nimi);
 	setTilaajanNimi(tilaajan_nimi);
 }
 void Subscription::syotaToimitusosoite() {
 	std::string toimitusosoite;
 	std::cout << "Syötä toimitusosoite: " << std::endl;
-	std::cin >> toimitusosoite;
+	getline(std::cin, toimitusosoite);
 	setToimitusosoite(toimitusosoite);
 }
 void Subscription::syotaKuukausihinta() {
 	double kuukausihinta;
-	std::cout << "Syötä kuukausihinta: " << std::endl;
-	std::cin >> kuukausihinta;
+	while(true) {
+		std::cout << "Syötä kuukausihinta: " << std::endl;
+		std::cin >> kuukausihinta;
+		if(!std::cin) {
+			std::cout << "Syötä lukuarvo!" << std::endl;
+		}
+		else if(kuukausihinta < 0) {
+			std::cout << "Syötä positiivinen lukuarvo!" << std::endl;
+		}
+		else {
+			break;
+		}
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 	setKuukausihinta(kuukausihinta);
 }
+void Subscription::syotaKuukaudet() {
+	int kuukaudet;
+	std::string tyyppi = getTyyppi();
 
-
-void printSubscriptionInvoice(Subscription &subs) {
-	std::string tilaajan_nimi, lehden_nimi, toimitusosoite, tyyppi;
+	if(tyyppi == "Normaalitilaus") {
+		while(true) {
+			std::cout << "Syötä tilauksen kesto kuukausina: " << std::endl;
+			std::cin >> kuukaudet;
+			if(!(std::cin)) {
+				std::cout << "Syötä kokonaisluku!" << std::endl;
+			}
+			else if(kuukaudet < 1){
+				std::cout << "Syötä kestoksi vähintään 1 kuukausi" << std::endl;
+			}
+			else {
+				break;
+			}
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+	}
+	else {
+		kuukaudet = 12;
+	}
+																																																																																																																											setLaskutettavatKK(kuukaudet);
+}
+void Subscription::printInvoice() {
+	std::string tilaajan_nimi, lehden_nimi, toimitusosoite;
 	double hinta, laskutettavat_kk;
 
-	tilaajan_nimi = subs.getTilaajanNimi();
-	lehden_nimi = subs.getLehdenNimi();
-	toimitusosoite = subs.getToimitusosoite();
-	tyyppi = subs.getTyyppi();
-	laskutettavat_kk = subs.getLaskutettavatKK();
-	hinta = subs.getHinta();
+	tilaajan_nimi = getTilaajanNimi();
+	lehden_nimi = getLehdenNimi();
+	toimitusosoite = getToimitusosoite();
+	laskutettavat_kk = getLaskutettavatKK();
+	hinta = getHinta();
 
-	std::cout << "Tilaaja: " << tilaajan_nimi << std::endl;
+	std::cout << std::endl << "Tilaaja: " << tilaajan_nimi << std::endl;
 	std::cout << "Lehti: " << lehden_nimi << std::endl;
 	std::cout << "Toimitusosoite: " << toimitusosoite << std::endl;
-	std::cout << "Tilauksen tyyppi: " << tyyppi << std::endl;
 	std::cout << "Laskutettavat kuukaudet: " << laskutettavat_kk << std::endl;
-	if(tyyppi == "Normaalitilaus") {
-		int tilauksen_kesto = subs.getTilauksenKesto();
-		std::cout << "Tilauksen kesto: " << tilauksen_kesto << " kuukautta." << std::endl;
-	}
-	if(tyyppi == "Kestotilaus") {
-		int alennusprosentti = subs.getAlennusprosentti();
-		std::cout << "Alennusprosentti: " << alennusprosentti << "%" << std::endl;
-	}
 	std::cout << "Tilauksen kokonaishinta: " << hinta << " euroa." << std::endl;
 }
+
+
+
