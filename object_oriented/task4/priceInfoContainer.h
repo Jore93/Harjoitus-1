@@ -4,10 +4,16 @@
 #include <vector>
 
 class PriceInfoContainer {
-	std::vector priceInfoVector;
-	PriceInfo priceInfo[];
-
-
+	private:
+		std::vector priceInfoVector;
+		PriceInfo priceInfo;
+	public:
+		PriceInfo getHintatieto();
+		void setHintatieto(PriceInfo priceInfo);
+		void lisaaHintatieto();
+		void tulostaSailio();
+		void tulostaLiianKalliit();
+		void tulostaSopivat();
 };
 
 

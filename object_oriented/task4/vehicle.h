@@ -15,6 +15,10 @@ class Vehicle {
 		void setMerkki(std::string ajoneuvonMerkki);
 		void setValmistusvuosi(int valmistusuosi);
 		void setAjetutKilometrit(int ajetutKm);
+
+		void syotaMerkki();
+		void syotaValmistusvuosi();
+		void syotaAjetutKilometrit();
 };
 
 

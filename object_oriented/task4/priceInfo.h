@@ -4,11 +4,18 @@
 #include "vehicle.h"
 
 class PriceInfo {
-	Vehicle vehicle;
-	double AjoneuvonHinta;
-
-	double getAjoneuvonHinta();
-	void setAjoneuvonHinta(double ajoneuvonHinta);
+	private:
+		Vehicle vehicle;
+		double AjoneuvonHinta;
+	public:
+		// Getters
+		double getAjoneuvonHinta();
+		Vehicle getVehicle();
+		// Setters
+		void setAjoneuvonHinta(double ajoneuvonHinta);
+		void setVehicle(Vehicle vehicle);
+		// Methods
+		void syotaAjoneuvonHinta();
 };
 
 #endif /* TASK4_PRICEINFO_H_ */
