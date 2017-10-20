@@ -1,4 +1,7 @@
 #include "priceInfo.h"
+#include <iostream>
+#include <sstream>
+#include <limits>
 
 Vehicle vehicle;
 double AjoneuvonHinta;

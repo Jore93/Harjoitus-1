@@ -47,7 +47,7 @@ void Vehicle::syotaValmistusvuosi() {
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	setValmistusvuosi(valmistus);
+	setValmistusvuosi(valmistusvuosi);
 }
 void Vehicle::syotaAjetutKilometrit() {
 	int kilometrit;

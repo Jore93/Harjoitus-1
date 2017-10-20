@@ -1,15 +1,19 @@
 #ifndef TASK4_PRICEINFOCONTAINER_H_
 #define TASK4_PRICEINFOCONTAINER_H_
 
+#include "priceInfo.h"
 #include <vector>
 
 class PriceInfoContainer {
 	private:
-		std::vector priceInfoVector;
+		std::vector <PriceInfo> priceInfoVector;
 		PriceInfo priceInfo;
 	public:
+		std::vector <PriceInfo> getHintatietoVektori();
 		PriceInfo getHintatieto();
-		void setHintatieto(PriceInfo priceInfo);
+//		std::vector <PriceInfo> *initHintatietoVektori();
+		void setHintatietoVektori(std::vector <PriceInfo> priceInfoVec);
+		void setHintatieto(PriceInfo priceinfo);
 		void lisaaHintatieto();
 		void tulostaSailio();
 		void tulostaLiianKalliit();
