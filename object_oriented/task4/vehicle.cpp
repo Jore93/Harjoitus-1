@@ -26,7 +26,7 @@ void Vehicle::setAjetutKilometrit(int ajetutKm) {
 // Methods
 void Vehicle::syotaMerkki() {
 	std::string ajoneuvonMerkki;
-	std::cout << "Syötä ajoneuven merkki: " << std::endl;
+	std::cout << "Syötä ajoneuvon merkki: " << std::endl;
 	std::cin >> ajoneuvonMerkki;
 	setMerkki(ajoneuvonMerkki);
 }

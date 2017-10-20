@@ -2,7 +2,6 @@
 #include <iostream>
 #include <sstream>
 #include <limits>
-#include <stdlib.h>
 
 std::vector <PriceInfo> PriceInfoContainer::getHintatietoVektori() {
 	return priceInfoVector;
@@ -10,26 +9,42 @@ std::vector <PriceInfo> PriceInfoContainer::getHintatietoVektori() {
 PriceInfo PriceInfoContainer::getHintatieto() {
 	return priceInfo;
 }
-/*std::vector <PriceInfo> *PriceInfoContainer::initHintatietoVektori() {
-	std::vector <PriceInfo> *ret = calloc(1, sizeof(PriceInfo));
-	return ret;
-}*/
-void PriceInfoContainer::setHintatietoVektori(std::vector <PriceInfo> priceInfoVec) {
-	priceInfoVector = priceInfoVec;
+void PriceInfoContainer::setHintatietoVektori(PriceInfo hintaOlio) {
+	priceInfoVector.push_back(hintaOlio);
 }
 void PriceInfoContainer::setHintatieto(PriceInfo priceinfo) {
 	priceInfo = priceinfo;
 }
 void PriceInfoContainer::lisaaHintatieto() {
 	Vehicle vehicle;
+	PriceInfo price;
+
 	vehicle.syotaMerkki();
 	vehicle.syotaValmistusvuosi();
 	vehicle.syotaAjetutKilometrit();
-	priceInfo.syotaAjoneuvonHinta();
+	price.syotaAjoneuvonHinta();
+	price.setVehicle(vehicle);
+	setHintatieto(price);
 }
 void PriceInfoContainer::tulostaSailio() {
-	for(uint i = 0; i<priceInfoVector.size(); i++) {
-		std::cout << "Hintatietovektorit" /*priceInfoVector[i]*/ << std::endl;
+	PriceInfoContainer price;
+	PriceInfo olio;
+	Vehicle vehicle;
+	std::string merkki;
+	double kilometrit, vuosi, hinta;
+
+	for(std::vector<PriceInfo>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
+		olio = *i;
+		hinta = olio.getAjoneuvonHinta();
+		vehicle = olio.getVehicle();
+		merkki = vehicle.getMerkki();
+		vuosi = vehicle.getValmistusvuosi();
+		kilometrit = vehicle.getAjetutKilometrit();
+
+		std::cout <<  "Merkki: "<< merkki << std::endl;
+		std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
+		std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
+		std::cout <<  "Hinta: "<< hinta << std::endl;
 	}
 }
 void PriceInfoContainer::tulostaLiianKalliit() {

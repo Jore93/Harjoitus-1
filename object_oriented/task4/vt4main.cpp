@@ -3,10 +3,12 @@
 
 int main() {
 	PriceInfoContainer container;
+	int i = 1;
 	while(true) {
 		container.lisaaHintatieto();
 		container.tulostaSailio();
-		while(true) {
+		i++;
+		while(i > 5) {
 			std::string vast;
 			std::cout << "Haluatko lopettaa? (y/n): " << std::endl;
 			std::cin >> vast;

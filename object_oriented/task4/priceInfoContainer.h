@@ -12,7 +12,7 @@ class PriceInfoContainer {
 		std::vector <PriceInfo> getHintatietoVektori();
 		PriceInfo getHintatieto();
 //		std::vector <PriceInfo> *initHintatietoVektori();
-		void setHintatietoVektori(std::vector <PriceInfo> priceInfoVec);
+		void setHintatietoVektori(PriceInfo hintaOlio);
 		void setHintatieto(PriceInfo priceinfo);
 		void lisaaHintatieto();
 		void tulostaSailio();

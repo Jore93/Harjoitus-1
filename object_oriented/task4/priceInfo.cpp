@@ -12,6 +12,9 @@ double PriceInfo::getAjoneuvonHinta() {
 void PriceInfo::setAjoneuvonHinta(double ajoneuvonHinta) {
 	AjoneuvonHinta = ajoneuvonHinta;
 }
+void setVehicle(Vehicle sVehicle) {
+	vehicle = sVehicle;
+}
 void PriceInfo::syotaAjoneuvonHinta() {
 	double hinta;
 	while(true) {
