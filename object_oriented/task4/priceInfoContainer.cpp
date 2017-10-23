@@ -3,18 +3,24 @@
 #include <sstream>
 #include <limits>
 
+PriceInfoContainer::PriceInfoContainer() {
+	setHintatietoVektori("", 0, 0, 0);
+}
+PriceInfoContainer::PriceInfoContainer(std::string merkki, int vuosimalli, int ajetutKM, double hinta) {
+	setHintatietoVektori(merkki, vuosimalli, ajetutKM, hinta);
+}
+PriceInfoContainer::~PriceInfoContainer() {
+
+}
+
 std::vector <PriceInfo> PriceInfoContainer::getHintatietoVektori() {
 	return priceInfoVector;
 }
-PriceInfo PriceInfoContainer::getHintatieto() {
-	return priceInfo;
+
+void PriceInfoContainer::setHintatietoVektori(std::string merkki, int vuosimalli, int ajetutKM, double hinta) {
+	priceInfoVector.push_back(*(new PriceInfo(merkki, vuosimalli, ajetutKM, hinta)));
 }
-void PriceInfoContainer::setHintatietoVektori(PriceInfo hintaOlio) {
-	priceInfoVector.push_back(hintaOlio);
-}
-void PriceInfoContainer::setHintatieto(PriceInfo priceinfo) {
-	priceInfo = priceinfo;
-}
+
 void PriceInfoContainer::lisaaHintatieto() {
 	Vehicle vehicle;
 	PriceInfo price;
@@ -23,15 +29,14 @@ void PriceInfoContainer::lisaaHintatieto() {
 	vehicle.syotaValmistusvuosi();
 	vehicle.syotaAjetutKilometrit();
 	price.syotaAjoneuvonHinta();
-	price.setVehicle(vehicle);
-	setHintatieto(price);
+	setHintatietoVektori(vehicle.getMerkki(), vehicle.getValmistusvuosi(), vehicle.getAjetutKilometrit(), price.getAjoneuvonHinta());
 }
 void PriceInfoContainer::tulostaSailio() {
-	PriceInfoContainer price;
 	PriceInfo olio;
 	Vehicle vehicle;
 	std::string merkki;
-	double kilometrit, vuosi, hinta;
+	int vuosi, kilometrit;
+	double hinta;
 
 	for(std::vector<PriceInfo>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
 		olio = *i;
@@ -48,20 +53,35 @@ void PriceInfoContainer::tulostaSailio() {
 	}
 }
 void PriceInfoContainer::tulostaLiianKalliit() {
+	PriceInfo olio;
+	Vehicle vehicle;
+	std::string merkki;
+	int vuosi, kilometrit;
 	double hinta, raja;
 	while(true) {
-		std::cout << "Syötä hinta: " << std::endl;
-		std::cin >> hinta;
+		std::cout << "Syötä maksimihinta: " << std::endl;
+		std::cin >> raja;
 		if(!std::cin) {
 			std::cout << "Syötä lukuarvo!" << std::endl;
 		}
-		else if(hinta < 0) {
+		else if(raja < 0) {
 			std::cout << "Syötä positiivinen lukuarvo!" << std::endl;
 		}
 		else {
-			raja = priceInfo.getAjoneuvonHinta();
-			if(raja <= hinta) {
-				std::cout << "Ajoneuvot:" << std::endl;
+			for(std::vector<PriceInfo>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
+				olio = *i;
+				hinta = olio.getAjoneuvonHinta();
+				vehicle = olio.getVehicle();
+				merkki = vehicle.getMerkki();
+				vuosi = vehicle.getValmistusvuosi();
+				kilometrit = vehicle.getAjetutKilometrit();
+
+				if(raja < hinta) {
+					std::cout <<  "Merkki: "<< merkki << std::endl;
+					std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
+					std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
+					std::cout <<  "Hinta: "<< hinta << std::endl;
+				}
 			}
 			break;
 		}
@@ -70,20 +90,35 @@ void PriceInfoContainer::tulostaLiianKalliit() {
 	}
 }
 void PriceInfoContainer::tulostaSopivat() {
+	PriceInfo olio;
+	Vehicle vehicle;
+	std::string merkki;
+	int vuosi, kilometrit;
 	double hinta, raja;
 	while(true) {
-		std::cout << "Syötä hinta: " << std::endl;
-		std::cin >> hinta;
+		std::cout << "Syötä maksimihinta: " << std::endl;
+		std::cin >> raja;
 		if(!std::cin) {
 			std::cout << "Syötä lukuarvo!" << std::endl;
 		}
-		else if(hinta < 0) {
+		else if(raja <= 0) {
 			std::cout << "Syötä positiivinen lukuarvo!" << std::endl;
 		}
 		else {
-			raja = priceInfo.getAjoneuvonHinta();
-			if(raja > hinta) {
-				std::cout << "Ajoneuvot:" << std::endl;
+			for(std::vector<PriceInfo>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
+				olio = *i;
+				hinta = olio.getAjoneuvonHinta();
+				vehicle = olio.getVehicle();
+				merkki = vehicle.getMerkki();
+				vuosi = vehicle.getValmistusvuosi();
+				kilometrit = vehicle.getAjetutKilometrit();
+
+				if(raja > hinta) {
+					std::cout <<  "Merkki: "<< merkki << std::endl;
+					std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
+					std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
+					std::cout <<  "Hinta: "<< hinta << std::endl;
+				}
 			}
 			break;
 		}

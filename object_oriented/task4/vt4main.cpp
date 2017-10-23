@@ -6,13 +6,14 @@ int main() {
 	int i = 1;
 	while(true) {
 		container.lisaaHintatieto();
-		container.tulostaSailio();
 		i++;
-		while(i > 5) {
+		while(i > 1) {
 			std::string vast;
 			std::cout << "Haluatko lopettaa? (y/n): " << std::endl;
 			std::cin >> vast;
 			if(vast == "y") {
+				container.tulostaSailio();
+				container.~PriceInfoContainer();
 				return 0;
 			}
 			else if(vast == "n") {

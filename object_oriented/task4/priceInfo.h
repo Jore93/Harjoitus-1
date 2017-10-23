@@ -5,15 +5,18 @@
 
 class PriceInfo {
 	private:
-		Vehicle vehicle;
+		Vehicle Ajoneuvo;
 		double AjoneuvonHinta;
 	public:
+		PriceInfo();
+		PriceInfo(std::string merkki, int vuosimalli, int ajetutKM, double ajoneuvonHinta);
+		~PriceInfo();
 		// Getters
 		double getAjoneuvonHinta();
 		Vehicle getVehicle();
 		// Setters
 		void setAjoneuvonHinta(double ajoneuvonHinta);
-		void setVehicle(Vehicle vehicle);
+		void setVehicle(Vehicle* ajoneuvo);
 		// Methods
 		void syotaAjoneuvonHinta();
 };

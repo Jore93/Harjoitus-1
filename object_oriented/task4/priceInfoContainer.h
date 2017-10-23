@@ -7,13 +7,13 @@
 class PriceInfoContainer {
 	private:
 		std::vector <PriceInfo> priceInfoVector;
-		PriceInfo priceInfo;
 	public:
+		PriceInfoContainer();
+		PriceInfoContainer(std::string merkki, int vuosimalli, int ajetutKM, double hinta);
+		~PriceInfoContainer();
 		std::vector <PriceInfo> getHintatietoVektori();
 		PriceInfo getHintatieto();
-//		std::vector <PriceInfo> *initHintatietoVektori();
-		void setHintatietoVektori(PriceInfo hintaOlio);
-		void setHintatieto(PriceInfo priceinfo);
+		void setHintatietoVektori(std::string merkki, int vuosimalli, int ajetutKM, double hinta);
 		void lisaaHintatieto();
 		void tulostaSailio();
 		void tulostaLiianKalliit();

@@ -3,6 +3,20 @@
 #include <sstream>
 #include <limits>
 
+
+Vehicle::Vehicle() {
+	setMerkki("");
+	setValmistusvuosi(0);
+	setAjetutKilometrit(0);
+}
+Vehicle::Vehicle(std::string merkki, int valmistusvuosi, int ajetutKM) {
+	setMerkki(merkki);
+	setValmistusvuosi(valmistusvuosi);
+	setAjetutKilometrit(ajetutKM);
+}
+Vehicle::~Vehicle() {
+
+}
 // Getters
 std::string Vehicle::getMerkki() {
 	return AjoneuvonMerkki;

@@ -3,17 +3,30 @@
 #include <sstream>
 #include <limits>
 
-Vehicle vehicle;
-double AjoneuvonHinta;
+PriceInfo::PriceInfo() {
+	Vehicle tmp_vehicle;
+	setAjoneuvonHinta(0);
+	setVehicle(new Vehicle("", 0, 0));
+}
+PriceInfo::PriceInfo(std::string merkki, int vuosimalli, int ajetutKM, double ajoneuvonHinta) {
+	setAjoneuvonHinta(ajoneuvonHinta);
+	setVehicle(new Vehicle(merkki, vuosimalli, ajetutKM));
+}
+PriceInfo::~PriceInfo() {
+	Ajoneuvo.~Vehicle();
+}
 
 double PriceInfo::getAjoneuvonHinta() {
 	return AjoneuvonHinta;
 }
+Vehicle PriceInfo::getVehicle() {
+	return Ajoneuvo;
+}
 void PriceInfo::setAjoneuvonHinta(double ajoneuvonHinta) {
 	AjoneuvonHinta = ajoneuvonHinta;
 }
-void setVehicle(Vehicle sVehicle) {
-	vehicle = sVehicle;
+void PriceInfo::setVehicle(Vehicle* ajoneuvo) {
+	Ajoneuvo = *ajoneuvo;
 }
 void PriceInfo::syotaAjoneuvonHinta() {
 	double hinta;
