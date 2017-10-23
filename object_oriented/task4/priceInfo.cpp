@@ -13,7 +13,7 @@ PriceInfo::PriceInfo(std::string merkki, int vuosimalli, int ajetutKM, double aj
 	setVehicle(new Vehicle(merkki, vuosimalli, ajetutKM));
 }
 PriceInfo::~PriceInfo() {
-	Ajoneuvo.~Vehicle();
+
 }
 
 double PriceInfo::getAjoneuvonHinta() {

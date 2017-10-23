@@ -18,7 +18,9 @@ std::vector <PriceInfo> PriceInfoContainer::getHintatietoVektori() {
 }
 
 void PriceInfoContainer::setHintatietoVektori(std::string merkki, int vuosimalli, int ajetutKM, double hinta) {
-	priceInfoVector.push_back(*(new PriceInfo(merkki, vuosimalli, ajetutKM, hinta)));
+	if(merkki != "" && vuosimalli != 0 && ajetutKM != 0 && hinta != 0) {
+		priceInfoVector.push_back(*(new PriceInfo(merkki, vuosimalli, ajetutKM, hinta)));
+	}
 }
 
 void PriceInfoContainer::lisaaHintatieto() {
