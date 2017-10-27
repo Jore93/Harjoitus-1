@@ -27,6 +27,24 @@ void PriceInfoContainer::lisaaHintatieto() {
 	price.syotaAjoneuvonHinta();
 	setHintatietoVektori(vehicle.getMerkki(), vehicle.getValmistusvuosi(), vehicle.getAjetutKilometrit(), price.getAjoneuvonHinta());
 }
+double PriceInfoContainer::kysyHinta() {
+	while(true) {
+		double raja;
+		std::cout << "Syötä maksimihinta: " << std::endl;
+		std::cin >> raja;
+		if(!std::cin) {
+			std::cout << "Syötä lukuarvo!" << std::endl;
+		}
+		else if(raja <= 0) {
+			std::cout << "Syötä positiivinen lukuarvo!" << std::endl;
+		}
+		else {
+			return raja;
+		}
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+}
 void PriceInfoContainer::tulostaSailio() {
 	PriceInfo* olio;
 	Vehicle* vehicle;
@@ -49,78 +67,50 @@ void PriceInfoContainer::tulostaSailio() {
 		}
 	}
 }
-void PriceInfoContainer::tulostaLiianKalliit() {
+void PriceInfoContainer::tulostaLiianKalliit(double raja) {
 	PriceInfo* olio;
 	Vehicle* vehicle;
 	std::string merkki;
 	int vuosi, kilometrit;
-	double hinta, raja;
-	while(true) {
-		std::cout << "Syötä maksimihinta: " << std::endl;
-		std::cin >> raja;
-		if(!std::cin) {
-			std::cout << "Syötä lukuarvo!" << std::endl;
-		}
-		else if(raja < 0) {
-			std::cout << "Syötä positiivinen lukuarvo!" << std::endl;
-		}
-		else {
-			for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
-				olio = *i;
-				hinta = olio->getAjoneuvonHinta();
-				vehicle = olio->getVehicle();
-				merkki = vehicle->getMerkki();
-				vuosi = vehicle->getValmistusvuosi();
-				kilometrit = vehicle->getAjetutKilometrit();
+	double hinta;
+	for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
+		olio = *i;
+		hinta = olio->getAjoneuvonHinta();
+		vehicle = olio->getVehicle();
+		merkki = vehicle->getMerkki();
+		vuosi = vehicle->getValmistusvuosi();
+		kilometrit = vehicle->getAjetutKilometrit();
 
-				if(raja < hinta) {
-					std::cout <<  "Merkki: "<< merkki << std::endl;
-					std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
-					std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
-					std::cout <<  "Hinta: "<< hinta << std::endl;
-				}
-			}
-			break;
+		if(raja < hinta) {
+			std::cout << "Ajoneuvot jotka ovat kalliimpia kuin " << raja << " euroa" << std::endl;
+			std::cout <<  "Merkki: "<< merkki << std::endl;
+			std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
+			std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
+			std::cout <<  "Hinta: "<< hinta << std::endl;
 		}
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 }
-void PriceInfoContainer::tulostaSopivat() {
+void PriceInfoContainer::tulostaSopivat(double raja) {
 	PriceInfo* olio;
 	Vehicle* vehicle;
 	std::string merkki;
 	int vuosi, kilometrit;
-	double hinta, raja;
-	while(true) {
-		std::cout << "Syötä maksimihinta: " << std::endl;
-		std::cin >> raja;
-		if(!std::cin) {
-			std::cout << "Syötä lukuarvo!" << std::endl;
-		}
-		else if(raja <= 0) {
-			std::cout << "Syötä positiivinen lukuarvo!" << std::endl;
-		}
-		else {
-			for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
-				olio = *i;
-				hinta = olio->getAjoneuvonHinta();
-				vehicle = olio->getVehicle();
-				merkki = vehicle->getMerkki();
-				vuosi = vehicle->getValmistusvuosi();
-				kilometrit = vehicle->getAjetutKilometrit();
+	double hinta;
+	for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
+		olio = *i;
+		hinta = olio->getAjoneuvonHinta();
+		vehicle = olio->getVehicle();
+		merkki = vehicle->getMerkki();
+		vuosi = vehicle->getValmistusvuosi();
+		kilometrit = vehicle->getAjetutKilometrit();
 
-				if(raja > hinta) {
-					std::cout <<  "Merkki: "<< merkki << std::endl;
-					std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
-					std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
-					std::cout <<  "Hinta: "<< hinta << std::endl;
-				}
-			}
-			break;
+		if(raja > hinta) {
+			std::cout << "Ajoneuvot jotka ovat halvempia kuin " << raja << " euroa" << std::endl;
+			std::cout <<  "Merkki: "<< merkki << std::endl;
+			std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
+			std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
+			std::cout <<  "Hinta: "<< hinta << std::endl;
 		}
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 }
 

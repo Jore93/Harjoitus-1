@@ -14,8 +14,11 @@ int main() {
 			std::cin >> vast;
 			if(vast == "y") {
 				container.tulostaSailio();
+				double raja = container.kysyHinta();
+				container.tulostaSopivat(raja);
+				container.tulostaLiianKalliit(raja);
 				vec = container.getHintatietoVektori();
-				for(int i=0; i<vec.size(); i++) {
+				for(unsigned i=0; i<vec.size(); i++) {
 					Vehicle* tmp = vec[i]->getVehicle();
 					delete(tmp);			// Delete Vehicle
 					delete(vec[i]); 		// Delete PriceInfo
