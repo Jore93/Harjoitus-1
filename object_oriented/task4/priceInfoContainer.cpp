@@ -4,10 +4,6 @@
 #include <limits>
 
 PriceInfoContainer::PriceInfoContainer() {
-	setHintatietoVektori("", 0, 0, 0);
-}
-PriceInfoContainer::PriceInfoContainer(std::string merkki, int vuosimalli, int ajetutKM, double hinta) {
-	setHintatietoVektori(merkki, vuosimalli, ajetutKM, hinta);
 }
 PriceInfoContainer::~PriceInfoContainer() {
 
