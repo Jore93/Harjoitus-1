@@ -5,7 +5,7 @@
 
 class PriceInfo {
 	private:
-		Vehicle Ajoneuvo;
+		Vehicle *Ajoneuvo = NULL;
 		double AjoneuvonHinta;
 	public:
 		PriceInfo();

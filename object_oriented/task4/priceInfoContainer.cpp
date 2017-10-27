@@ -13,13 +13,13 @@ PriceInfoContainer::~PriceInfoContainer() {
 
 }
 
-std::vector <PriceInfo> PriceInfoContainer::getHintatietoVektori() {
+std::vector <PriceInfo*> PriceInfoContainer::getHintatietoVektori() {
 	return priceInfoVector;
 }
 
 void PriceInfoContainer::setHintatietoVektori(std::string merkki, int vuosimalli, int ajetutKM, double hinta) {
 	if(merkki != "" && vuosimalli != 0 && ajetutKM != 0 && hinta != 0) {
-		priceInfoVector.push_back(*(new PriceInfo(merkki, vuosimalli, ajetutKM, hinta)));
+		priceInfoVector.push_back(new PriceInfo(merkki, vuosimalli, ajetutKM, hinta));
 	}
 }
 
@@ -34,16 +34,16 @@ void PriceInfoContainer::lisaaHintatieto() {
 	setHintatietoVektori(vehicle.getMerkki(), vehicle.getValmistusvuosi(), vehicle.getAjetutKilometrit(), price.getAjoneuvonHinta());
 }
 void PriceInfoContainer::tulostaSailio() {
-	PriceInfo olio;
+	PriceInfo* olio;
 	Vehicle vehicle;
 	std::string merkki;
 	int vuosi, kilometrit;
 	double hinta;
 
-	for(std::vector<PriceInfo>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
+	for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
 		olio = *i;
-		hinta = olio.getAjoneuvonHinta();
-		vehicle = olio.getVehicle();
+		hinta = olio->getAjoneuvonHinta();
+		vehicle = olio->getVehicle();
 		merkki = vehicle.getMerkki();
 		vuosi = vehicle.getValmistusvuosi();
 		kilometrit = vehicle.getAjetutKilometrit();
@@ -55,7 +55,7 @@ void PriceInfoContainer::tulostaSailio() {
 	}
 }
 void PriceInfoContainer::tulostaLiianKalliit() {
-	PriceInfo olio;
+	PriceInfo* olio;
 	Vehicle vehicle;
 	std::string merkki;
 	int vuosi, kilometrit;
@@ -70,10 +70,10 @@ void PriceInfoContainer::tulostaLiianKalliit() {
 			std::cout << "Syötä positiivinen lukuarvo!" << std::endl;
 		}
 		else {
-			for(std::vector<PriceInfo>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
+			for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
 				olio = *i;
-				hinta = olio.getAjoneuvonHinta();
-				vehicle = olio.getVehicle();
+				hinta = olio->getAjoneuvonHinta();
+				vehicle = olio->getVehicle();
 				merkki = vehicle.getMerkki();
 				vuosi = vehicle.getValmistusvuosi();
 				kilometrit = vehicle.getAjetutKilometrit();
@@ -92,7 +92,7 @@ void PriceInfoContainer::tulostaLiianKalliit() {
 	}
 }
 void PriceInfoContainer::tulostaSopivat() {
-	PriceInfo olio;
+	PriceInfo* olio;
 	Vehicle vehicle;
 	std::string merkki;
 	int vuosi, kilometrit;
@@ -107,10 +107,10 @@ void PriceInfoContainer::tulostaSopivat() {
 			std::cout << "Syötä positiivinen lukuarvo!" << std::endl;
 		}
 		else {
-			for(std::vector<PriceInfo>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
+			for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
 				olio = *i;
-				hinta = olio.getAjoneuvonHinta();
-				vehicle = olio.getVehicle();
+				hinta = olio->getAjoneuvonHinta();
+				vehicle = olio->getVehicle();
 				merkki = vehicle.getMerkki();
 				vuosi = vehicle.getValmistusvuosi();
 				kilometrit = vehicle.getAjetutKilometrit();

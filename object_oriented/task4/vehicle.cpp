@@ -1,4 +1,5 @@
 #include "vehicle.h"
+#include <cstring>
 #include <iostream>
 #include <sstream>
 #include <limits>

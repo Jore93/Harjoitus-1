@@ -4,7 +4,6 @@
 #include <limits>
 
 PriceInfo::PriceInfo() {
-	Vehicle tmp_vehicle;
 	setAjoneuvonHinta(0);
 	setVehicle(new Vehicle("", 0, 0));
 }
@@ -20,13 +19,13 @@ double PriceInfo::getAjoneuvonHinta() {
 	return AjoneuvonHinta;
 }
 Vehicle PriceInfo::getVehicle() {
-	return Ajoneuvo;
+	return *Ajoneuvo;
 }
 void PriceInfo::setAjoneuvonHinta(double ajoneuvonHinta) {
 	AjoneuvonHinta = ajoneuvonHinta;
 }
 void PriceInfo::setVehicle(Vehicle* ajoneuvo) {
-	Ajoneuvo = *ajoneuvo;
+	Ajoneuvo = ajoneuvo;
 }
 void PriceInfo::syotaAjoneuvonHinta() {
 	double hinta;

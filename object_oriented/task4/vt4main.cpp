@@ -3,17 +3,23 @@
 
 int main() {
 	PriceInfoContainer container;
-	int i = 1;
+	std::vector<PriceInfo*> vec;
+	int index = 1;
 	while(true) {
 		container.lisaaHintatieto();
-		i++;
-		while(i > 1) {
+		index++;
+		while(index > 1) {
 			std::string vast;
 			std::cout << "Haluatko lopettaa? (y/n): " << std::endl;
 			std::cin >> vast;
 			if(vast == "y") {
 				container.tulostaSailio();
-				container.~PriceInfoContainer();
+				vec = container.getHintatietoVektori();
+				for(std::vector<PriceInfo*>::iterator i=vec.begin(); i != vec.end(); i++) {
+
+					delete(*i); 		// Delete PriceInfo
+				}
+				std::cout << "Kiitos käytöstä!" << std::endl;
 				return 0;
 			}
 			else if(vast == "n") {
@@ -24,6 +30,6 @@ int main() {
 			}
 		}
 	}
-	return 0;
+	return 1;
 }
 
