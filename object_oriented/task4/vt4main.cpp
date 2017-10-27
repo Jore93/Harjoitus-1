@@ -8,14 +8,16 @@ int main() {
 	while(true) {
 		container.lisaaHintatieto();
 		index++;
-		while(index > 1) {
+		while(index > 5) {
 			std::string vast;
 			std::cout << "Haluatko lopettaa? (y/n): " << std::endl;
 			std::cin >> vast;
 			if(vast == "y") {
 				container.tulostaSailio();
 				double raja = container.kysyHinta();
+				std::cout << std::endl;
 				container.tulostaSopivat(raja);
+				std::cout << std::endl;
 				container.tulostaLiianKalliit(raja);
 				vec = container.getHintatietoVektori();
 				for(unsigned i=0; i<vec.size(); i++) {

@@ -73,6 +73,8 @@ void PriceInfoContainer::tulostaLiianKalliit(double raja) {
 	std::string merkki;
 	int vuosi, kilometrit;
 	double hinta;
+
+	std::cout << "Ajoneuvot jotka ovat kalliimpia kuin " << raja << " euroa" << std::endl << std::endl;
 	for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
 		olio = *i;
 		hinta = olio->getAjoneuvonHinta();
@@ -82,7 +84,6 @@ void PriceInfoContainer::tulostaLiianKalliit(double raja) {
 		kilometrit = vehicle->getAjetutKilometrit();
 
 		if(raja < hinta) {
-			std::cout << "Ajoneuvot jotka ovat kalliimpia kuin " << raja << " euroa" << std::endl;
 			std::cout <<  "Merkki: "<< merkki << std::endl;
 			std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
 			std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
@@ -96,6 +97,8 @@ void PriceInfoContainer::tulostaSopivat(double raja) {
 	std::string merkki;
 	int vuosi, kilometrit;
 	double hinta;
+
+	std::cout << "Ajoneuvot jotka ovat halvempia kuin " << raja << " euroa" << std::endl << std::endl;
 	for(std::vector<PriceInfo*>::iterator i=priceInfoVector.begin(); i != priceInfoVector.end(); i++) {
 		olio = *i;
 		hinta = olio->getAjoneuvonHinta();
@@ -105,7 +108,6 @@ void PriceInfoContainer::tulostaSopivat(double raja) {
 		kilometrit = vehicle->getAjetutKilometrit();
 
 		if(raja > hinta) {
-			std::cout << "Ajoneuvot jotka ovat halvempia kuin " << raja << " euroa" << std::endl;
 			std::cout <<  "Merkki: "<< merkki << std::endl;
 			std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
 			std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
