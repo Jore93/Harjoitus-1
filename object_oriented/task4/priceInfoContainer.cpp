@@ -63,7 +63,7 @@ void PriceInfoContainer::tulostaSailio() {
 		std::cout <<  "Merkki: "<< merkki << std::endl;
 		std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
 		std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
-		std::cout <<  "Hinta: "<< hinta << std::endl;
+		std::cout <<  "Hinta: "<< hinta << std::endl << std::endl;
 		}
 	}
 }
@@ -87,7 +87,7 @@ void PriceInfoContainer::tulostaLiianKalliit(double raja) {
 			std::cout <<  "Merkki: "<< merkki << std::endl;
 			std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
 			std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
-			std::cout <<  "Hinta: "<< hinta << std::endl;
+			std::cout <<  "Hinta: "<< hinta << std::endl << std::endl;
 		}
 	}
 }
@@ -111,7 +111,7 @@ void PriceInfoContainer::tulostaSopivat(double raja) {
 			std::cout <<  "Merkki: "<< merkki << std::endl;
 			std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
 			std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
-			std::cout <<  "Hinta: "<< hinta << std::endl;
+			std::cout <<  "Hinta: "<< hinta << std::endl << std::endl;
 		}
 	}
 }
