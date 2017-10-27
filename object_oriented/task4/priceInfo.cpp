@@ -5,7 +5,6 @@
 
 PriceInfo::PriceInfo() {
 	setAjoneuvonHinta(0);
-	setVehicle(new Vehicle("", 0, 0));
 }
 PriceInfo::PriceInfo(std::string merkki, int vuosimalli, int ajetutKM, double ajoneuvonHinta) {
 	setAjoneuvonHinta(ajoneuvonHinta);
@@ -18,8 +17,8 @@ PriceInfo::~PriceInfo() {
 double PriceInfo::getAjoneuvonHinta() {
 	return AjoneuvonHinta;
 }
-Vehicle PriceInfo::getVehicle() {
-	return *Ajoneuvo;
+Vehicle* PriceInfo::getVehicle() {
+	return Ajoneuvo;
 }
 void PriceInfo::setAjoneuvonHinta(double ajoneuvonHinta) {
 	AjoneuvonHinta = ajoneuvonHinta;

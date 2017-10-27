@@ -13,7 +13,7 @@ class PriceInfo {
 		~PriceInfo();
 		// Getters
 		double getAjoneuvonHinta();
-		Vehicle getVehicle();
+		Vehicle* getVehicle();
 		// Setters
 		void setAjoneuvonHinta(double ajoneuvonHinta);
 		void setVehicle(Vehicle* ajoneuvo);

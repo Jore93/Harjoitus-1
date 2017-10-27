@@ -15,9 +15,10 @@ int main() {
 			if(vast == "y") {
 				container.tulostaSailio();
 				vec = container.getHintatietoVektori();
-				for(std::vector<PriceInfo*>::iterator i=vec.begin(); i != vec.end(); i++) {
-
-					delete(*i); 		// Delete PriceInfo
+				for(int i=0; i<vec.size(); i++) {
+					Vehicle* tmp = vec[i]->getVehicle();
+					delete(tmp);			// Delete Vehicle
+					delete(vec[i]); 		// Delete PriceInfo
 				}
 				std::cout << "Kiitos käytöstä!" << std::endl;
 				return 0;

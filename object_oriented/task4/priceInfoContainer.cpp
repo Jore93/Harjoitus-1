@@ -18,9 +18,7 @@ std::vector <PriceInfo*> PriceInfoContainer::getHintatietoVektori() {
 }
 
 void PriceInfoContainer::setHintatietoVektori(std::string merkki, int vuosimalli, int ajetutKM, double hinta) {
-	if(merkki != "" && vuosimalli != 0 && ajetutKM != 0 && hinta != 0) {
-		priceInfoVector.push_back(new PriceInfo(merkki, vuosimalli, ajetutKM, hinta));
-	}
+	priceInfoVector.push_back(new PriceInfo(merkki, vuosimalli, ajetutKM, hinta));
 }
 
 void PriceInfoContainer::lisaaHintatieto() {
@@ -35,7 +33,7 @@ void PriceInfoContainer::lisaaHintatieto() {
 }
 void PriceInfoContainer::tulostaSailio() {
 	PriceInfo* olio;
-	Vehicle vehicle;
+	Vehicle* vehicle;
 	std::string merkki;
 	int vuosi, kilometrit;
 	double hinta;
@@ -44,19 +42,20 @@ void PriceInfoContainer::tulostaSailio() {
 		olio = *i;
 		hinta = olio->getAjoneuvonHinta();
 		vehicle = olio->getVehicle();
-		merkki = vehicle.getMerkki();
-		vuosi = vehicle.getValmistusvuosi();
-		kilometrit = vehicle.getAjetutKilometrit();
-
+		merkki = vehicle->getMerkki();
+		vuosi = vehicle->getValmistusvuosi();
+		kilometrit = vehicle->getAjetutKilometrit();
+		if(!(merkki == "" && vuosi == 0 && kilometrit == 0 && hinta == 0)) {
 		std::cout <<  "Merkki: "<< merkki << std::endl;
 		std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
 		std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
 		std::cout <<  "Hinta: "<< hinta << std::endl;
+		}
 	}
 }
 void PriceInfoContainer::tulostaLiianKalliit() {
 	PriceInfo* olio;
-	Vehicle vehicle;
+	Vehicle* vehicle;
 	std::string merkki;
 	int vuosi, kilometrit;
 	double hinta, raja;
@@ -74,9 +73,9 @@ void PriceInfoContainer::tulostaLiianKalliit() {
 				olio = *i;
 				hinta = olio->getAjoneuvonHinta();
 				vehicle = olio->getVehicle();
-				merkki = vehicle.getMerkki();
-				vuosi = vehicle.getValmistusvuosi();
-				kilometrit = vehicle.getAjetutKilometrit();
+				merkki = vehicle->getMerkki();
+				vuosi = vehicle->getValmistusvuosi();
+				kilometrit = vehicle->getAjetutKilometrit();
 
 				if(raja < hinta) {
 					std::cout <<  "Merkki: "<< merkki << std::endl;
@@ -93,7 +92,7 @@ void PriceInfoContainer::tulostaLiianKalliit() {
 }
 void PriceInfoContainer::tulostaSopivat() {
 	PriceInfo* olio;
-	Vehicle vehicle;
+	Vehicle* vehicle;
 	std::string merkki;
 	int vuosi, kilometrit;
 	double hinta, raja;
@@ -111,9 +110,9 @@ void PriceInfoContainer::tulostaSopivat() {
 				olio = *i;
 				hinta = olio->getAjoneuvonHinta();
 				vehicle = olio->getVehicle();
-				merkki = vehicle.getMerkki();
-				vuosi = vehicle.getValmistusvuosi();
-				kilometrit = vehicle.getAjetutKilometrit();
+				merkki = vehicle->getMerkki();
+				vuosi = vehicle->getValmistusvuosi();
+				kilometrit = vehicle->getAjetutKilometrit();
 
 				if(raja > hinta) {
 					std::cout <<  "Merkki: "<< merkki << std::endl;
