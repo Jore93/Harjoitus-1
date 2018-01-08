@@ -60,10 +60,10 @@ void PriceInfoContainer::tulostaSailio() {
 		vuosi = vehicle->getValmistusvuosi();
 		kilometrit = vehicle->getAjetutKilometrit();
 		if(!(merkki == "" && vuosi == 0 && kilometrit == 0 && hinta == 0)) {
-		std::cout <<  "Merkki: "<< merkki << std::endl;
-		std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
-		std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
-		std::cout <<  "Hinta: "<< hinta << std::endl << std::endl;
+			std::cout <<  "Merkki: "<< merkki << std::endl;
+			std::cout <<  "Valmistusvuosi: "<< vuosi << std::endl;
+			std::cout <<  "Ajetut kilometrit: "<< kilometrit << std::endl;
+			std::cout <<  "Hinta: "<< hinta << std::endl << std::endl;
 		}
 	}
 }

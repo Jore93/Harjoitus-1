@@ -22,8 +22,8 @@ int main() {
 				vec = container.getHintatietoVektori();
 				for(unsigned i=0; i<vec.size(); i++) {
 					Vehicle* tmp = vec[i]->getVehicle();
-					delete(tmp);			// Delete Vehicle
-					delete(vec[i]); 		// Delete PriceInfo
+					delete(tmp);
+					delete(vec[i]);
 				}
 				std::cout << "Kiitos käytöstä!" << std::endl;
 				return 0;
