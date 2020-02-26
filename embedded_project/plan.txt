@@ -1,8 +1,0 @@
-Wireless microphone with transmitter and receiver
-
-
-BT modules (Silicon Labs BLE113-A-V1, Digikey: 1446-1028-1-ND) for transmitting and receiving signal
-Design filters to be used with BT modules
-ATMEL to control everything. AVR?
-MCP73831 to load LiPO battery (Capacity should be big enough to run the system >4 hours
-
